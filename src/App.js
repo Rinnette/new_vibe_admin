@@ -19,7 +19,9 @@ import AuthRoute from "./routes/authRoute";
 import PageNotFound from "./pages/pageNotFound/pageNotFound";
 import Raw from "./pages/raw/raw";
 import Retailers from "./pages/retailers/retailers";
+import RetailerForm from "./pages/retailers/retailerForm";
 import Categories from "./pages/categories/categories";
+import CategoryForm from "./pages/categories/categoryForm";
 
 function App() {
   const user = useAuth();
@@ -45,8 +47,14 @@ function App() {
                 <AuthRoute path="/retailers" exact>
                   <Retailers />
                 </AuthRoute>
+                <AuthRoute path="/retailers/add/:ret_id?" exact>
+                  <RetailerForm />
+                </AuthRoute>
                 <AuthRoute path="/categories" exact>
                   <Categories />
+                </AuthRoute>
+                <AuthRoute path="/category/add/:cat_id?" exact>
+                  <CategoryForm />
                 </AuthRoute>
                 <Route path="/login" component={Login} />
                 <Route path="/forgot" component={ForgotPassword} />
